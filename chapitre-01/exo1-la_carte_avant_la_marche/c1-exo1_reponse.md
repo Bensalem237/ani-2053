@@ -25,4 +25,4 @@ Le dépot contient 07 chanes de compilation, qui sont :
 Le projet de demarrage est `Sandbox`
 
 ## 4. La racine du fichier
-La racine du moteur est Nkentseu.jenga
+La racine du moteur est `Nkentseu.jenga`
