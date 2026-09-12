@@ -1,4 +1,10 @@
 # Exercice 1
+Après avoir tapé la commande
+
+```bash
+jenga info
+```
+dans la racine du dépot `Nkentseu`, j'ai obtenu les informations suivantes.
 
 ## 1. Nombre de projets par types
 Le dépot `Nkentseu` contient quatre types de projets. Le tableau suivant contient le nombre de projets par types : 
