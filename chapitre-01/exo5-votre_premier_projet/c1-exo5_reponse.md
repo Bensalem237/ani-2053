@@ -18,7 +18,7 @@ J'ai ensuite créé le fichier de projet `MonEssai.jenga` annoté ci-dessous :
 from Jenga import *
 from jengaconfig import *
 
-with project("MonEssai") :
+with project("MonEssai"):
     windowedapp()
     language("C++")
     cppdialect("C++17")
@@ -26,20 +26,22 @@ with project("MonEssai") :
 
     files(["src/**.cpp"])
 
-    nkentseudependson(["NKCanvas", "NKFont", "NKGlad"],
-                      extra_includes=["src"])
+    nkentseudependson(["NKCanvas", "NKFont", "NKGlad"], extra_includes=["src"])
 
     objdir("%{wks.location}/Build/Obj/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
     targetdir("%{wks.location}/Build/Bin/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
 
-    with filter("system :Windows") :
+    with filter("system:Windows"):
         usetoolchain(TC_WINDOWS)
         links(["user32", "gdi32", "opengl32", "dwmapi", "shell32"])
 
-    with filter("config :Debug") :
+    with filter("system:Linux"):
+        links(["X11", "Xrandr", "GL", "pthread", "dl"])
+
+    with filter("config:Debug"):
         defines(["_DEBUG"]); optimize("Off"); symbols(True)
 
-    with filter("config :Release") :
+    with filter("config:Release"):
         defines(["NDEBUG"]); optimize("speed"); symbols(False)
 ```
 ## Declaration au workspace
@@ -67,7 +69,6 @@ Ensuite, j'ai vérifié qu'il apparaissent avec la commande `jenga info` qui a p
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-[NKCode] ATTENTION : aucun wheel Jenga trouve (dist/*.whl) -> le paquet n'aura PAS de Jenga embarque, et les boutons Construire/Executer seront inoperants. Produisez-le avec ./cri.sh dans le depot Jenga.
 ========================== Jenga Workspace: Nkentseu ===========================
 
 Location: /home/ben-salem/Documents/COURSES/ENSPY/AN-ING2/ANI-2053/Nkentseu
@@ -396,7 +397,6 @@ pour construire le projet, la construction a bel et bien réussi comme vous pouv
 ╚══════════════════════════════════════════════════════════════════╝
 
 Loading workspace...
-[NKCode] ATTENTION : aucun wheel Jenga trouve (dist/*.whl) -> le paquet n'aura PAS de Jenga embarque, et les boutons Construire/Executer seront inoperants. Produisez-le avec ./cri.sh dans le depot Jenga.
 
 Configuration: Debug
 Target:        Linux x86_64
