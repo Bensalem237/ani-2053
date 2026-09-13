@@ -11,14 +11,14 @@ J'ai d'abord construit le projet `MonEssai` avec la configuration `Debug` avec l
 ```bash
 jenga build --project MonEssai --config Debug
 ```
-Le temps de construction était de **54,02s** comme observé dans le terminal :
+Le temps de construction était de **46,42s** comme observé dans le terminal :
 
 ```bash
 ════════════════════════════════════════════════════════════════════════════════
                                 BUILD COMPLETED                                 
 ════════════════════════════════════════════════════════════════════════════════
 Projects Built:  17/17
-Time:           54.02s
+Time:           46,42s
 Status:         ✓ SUCCESS
 ════════════════════════════════════════════════════════════════════════════════
 ```
@@ -38,14 +38,14 @@ pour obtenir la taille du fichier binaire qui est de **568Ko** comme j'ai pu obs
 ```bash
 jenga build --project MonEssai --config Release
 ```
-Le temps de construction était de **54,66s** (Surprenant, puisqu'il est plus long que le temps de Debug, bien que j'ai fait plusieurs essais) comme j'ai pu l'observer dans le terminal
+Le temps de construction était de **54,66s** comme j'ai pu l'observer dans le terminal
 
 ```bash
 ════════════════════════════════════════════════════════════════════════════════
                                 BUILD COMPLETED                                 
 ════════════════════════════════════════════════════════════════════════════════
 Projects Built:  17/17
-Time:           46.42s
+Time:           54.66s
 Status:         ✓ SUCCESS
 ════════════════════════════════════════════════════════════════════════════════
 ```
