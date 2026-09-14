@@ -14,11 +14,12 @@ dutc(enable=False)
 dute(enable=False)
 ```
 ## 2. Commande de lancement d'une suite de tests
-Après avoir réactivé les tests dans Nkentseu.jenga, lancez l'exécution des tests d'un module (par exemple NKMath ou NKCore) via le terminal : 
+Après avoir réactivé les tests dans Nkentseu.jenga, j'ai lancé l'exécution des tests d'un module (par exemple NKMath ou NKCore) via le terminal : 
 ```bash
 Bashjenga test --project NKMath
 ```
 
 ## 3. Bilan d'exécution
 Nombre de suites de tests existantes : 8
-Nombre de suites exécutées : 8Nombre de suites qui passent (réussies) : 36ms
+Nombre de suites exécutées : 8
+Nombre de suites qui passent (réussies) : 8
