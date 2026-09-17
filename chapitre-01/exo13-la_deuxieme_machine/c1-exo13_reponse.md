@@ -7,7 +7,7 @@
     * Le depot Jenga
     * Le depot Nkentseu
 * **Outils obsolètes :**
-    * python 2.9.1 (python 3 minimum requis)
+    * python 2.7.1 (python 3 minimum requis)
 
 ## Procedure suivie
 
@@ -63,14 +63,19 @@ J'ai essayé de résoudre le problème en créant un environnement virtuel (jeng
 ```bash
 source jenga_env/bin/activate
 ```
-Cela n'a pas résolu le problème, alors j'ai fait une deuxième tentative de résolution
-J'ai essayer d'utiliser `pipx` au lieu de `pip`
+On voit que ç'a marché par l'apparition de `(jenga_env)` juste avant l'invite de commande.
+```bash
+(jenga_env) ani-2053@ben-salem-Latitude-7480:~$ 
+```
+Ensuite j'ai retapé la commande `pip install -e .`
+
+Un autre moyen de résoudre le problème aurait été d'utiliser directement `pipx` au lieu de `pip`
 ```bash
 pipx install -e .
 ```
 L'installation a réussi
 
-6. Par la suite j'ai ajouté Jenga qu PATH environment variable
+6. Par la suite j'ai ajouté Jenga à la variable d'environnement `PATH`
 ```bash
 pipx ensurepath
 ```
