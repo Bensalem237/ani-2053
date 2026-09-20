@@ -1,6 +1,10 @@
 # Exercice 6 : Le conflit provoqué
 
+J'ai clonné mon dépot dans deux répertoires de travail différents et j'ai modifié la meme ligne du meme fichier dans les deux clonnes, puis j'ai poussé les changements dans un des clonnes.
+
 ## Le refus
+
+* Après avoir commit les changements du deuxième clonne, j'ai utilisé `git push origin main` pour pousser et ç'a déclanché le refus.
 
 Voici le message de refus :
 
@@ -16,6 +20,8 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
 ## Le conflit
+
+* Après le refus, j'ai tapé `git pull --no-rebase` pour récuperer les commits du dépot en ligne tout en forcant git à fusionner les changements et ç'a provoqué le conflit en voulant fusionner les deux changement de `fichier_1.cpp`
 
 Voice le message de conflit :
 
