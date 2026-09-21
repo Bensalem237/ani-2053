@@ -2,6 +2,7 @@
 
 Date de présentation : Lundi, 21 Septembre 2026
 Heure de début : 11:07
+Heure de fin: 11:51
 
 * J'ai commencé par créer un depot local vide dans lequel j'ai fait quelques commits, avec une second branche que j'ai fusionner ensuite pour qu'il y ait un point de divergence et de fusion dans le graphe.
 
