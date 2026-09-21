@@ -2,7 +2,7 @@
 
 Date de présentation : Lundi, 21 Septembre 2026
 Heure de début : 12:41
-Heure de fin : 
+Heure de fin : 12:58
 
 * J'ai commencé par vérifier l'état de mon depot avec la commande `git log --oneline`
 
