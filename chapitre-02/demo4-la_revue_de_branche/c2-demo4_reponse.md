@@ -29,5 +29,3 @@
 1. **Qu'est-ce qu'elle fait :** La branche permet de créer une simple calculatrice au dépot.
 
 2. **Les commits sont-ils lisibles :** Les commits sont lisibles. Ils sont clairs, concis et expliquent ce qui se passe
-
-3. **
