@@ -45,13 +45,34 @@ if (currentZone != lastZone) {
 
     // Attribue le curseur en fonction de la zone actuelle
     switch (currentZone) {
-    case 0: window.SetCursor(nkentseu::NkWindow::NkCursorType::Arrow); break;
-    case 1: window.SetCursor(nkentseu::NkWindow::NkCursorType::Hand); break;
-    case 2: window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNESW); break;
-    case 3: window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNS); break;
-    case 4: window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNWSE); break;
-    case 5: window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeWE); break;
-    case 6: window.SetCursor(nkentseu::NkWindow::NkCursorType::TextInput); break;
+    case 0:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::Arrow);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 1:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::Hand);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 2:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNESW);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 3:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNS);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 4:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeNWSE);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 5:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::ResizeWE);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
+    case 6:
+        window.SetCursor(nkentseu::NkWindow::NkCursorType::TextInput);
+        logger.Info("Zone changee : {0}", currentZone);
+        break;
     }
 }
 ```
