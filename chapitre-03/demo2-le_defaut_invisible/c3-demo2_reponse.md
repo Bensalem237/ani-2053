@@ -16,8 +16,8 @@ nkentseu::NkWindow window(cfg);
 ### 2. Mécanisme de correction
 La correction consiste à découpler la taille logique (perçue par l'utilisateur) de la taille physique (envoyée à la carte graphique) en changeant l'ordre des opérations :
 1. Instanciation de la fenêtre pour lier le contexte à l'écran courant.
-2. Interrogation dynamique du multiplicateur système via `window.GetDpiScale()`.
-3. Recalcul et application immédiate de la taille via `window.SetSize(Taille_Logique * DPI)`.
+2. Interrogation dynamique du facteur d'échelle via `window.GetDpiScale()`.
+3. Recalcul et application de la taille via `window.SetSize(Taille_Logique * DPI)`.
 
 ```cpp
 #include <NKWindow/NKWindow.h>
