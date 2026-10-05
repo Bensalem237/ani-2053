@@ -1,7 +1,8 @@
 #include <iostream>
+#include <string>
 
 int main() {
-    int N = 0, i = 0;
+    int n = 0, i = 0;
 
     struct primitive {
         std::string forme;
@@ -10,25 +11,25 @@ int main() {
         int sommetsRestants;
         bool refus;
     };
-
-    primitive arr[N];
-
+    
     struct bilan {
         int points;
         int segments;
         int triangles;
         int refuses;
     };
-
+    
     bilan total = {0, 0, 0, 0};
+    
+    std::cin >> n;
+    
+    primitive arr[n];
 
-    std::cin >> N;
-
-    for (i = 0; i < N; i++) {
+    for (i = 0; i < n; i++) {
         std::cin >> arr[i].forme >> arr[i].sommets;
     }
-
-    for (i = 0; i < N; i++) {
+    
+    for (i = 0; i < n; i++) {
         arr[i].refus = false;
         if (arr[i].forme == "POINTS") {
             arr[i].nbFormes = arr[i].sommets;
@@ -66,7 +67,7 @@ int main() {
         }
     }
 
-    for (i = 0; i < N; i++) {
+    for (i = 0; i < n; i++) {
         std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " " << arr[i].sommetsRestants;
         if (arr[i].refus) {
             std::cout << " REFUS";
@@ -74,6 +75,7 @@ int main() {
         std::cout << std::endl;
     }
 
+    // Output the total results
     std::cout << "POINTS " << total.points << std::endl;
     std::cout << "LINES " << total.segments << std::endl;
     std::cout << "TRIANGLES " << total.triangles << std::endl;
