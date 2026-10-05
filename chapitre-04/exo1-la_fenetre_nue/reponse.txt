@@ -1,0 +1,3 @@
+Ce que la coquille fait a ma place : Elle écrit la fenêtre, la boucle, le Clear, et le Display.
+Ce qui se passe si je configure dans OnInit : Ça n'a aucun effet.
+Ce qui se passe sans NKMain.h : Tout compile, mais, on obtient une erreur "undefined reference to WinMain.
