@@ -83,7 +83,9 @@ int main() {
                 << arr[i].nbFormes
                 << " SEGMENTS "
                 << arr[i].sommetsRestants;
-            } else if (arr[i].forme == "TRIANGLES" || arr[i].forme == "TRIANGLE STRIP" || arr[i].forme == "TRIANGLE_FAN") {
+            } else if (arr[i].forme == "TRIANGLES"
+                || arr[i].forme == "TRIANGLE STRIP"
+                || arr[i].forme == "TRIANGLE_FAN") {
                 std::cout
                 << arr[i].forme << " "
                 << arr[i].sommets << " "
