@@ -68,14 +68,14 @@ int main() {
     }
 
     for (i = 0; i < n; i++) {
-        std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " " << arr[i].sommetsRestants;
-        if (arr[i].refus) {
+        if (!arr[i].refus) {
+            std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " " << arr[i].forme << " " << arr[i].sommetsRestants;
+        } else {
             std::cout << " REFUS";
         }
         std::cout << std::endl;
     }
 
-    // Output the total results
     std::cout << "POINTS " << total.points << std::endl;
     std::cout << "LINES " << total.segments << std::endl;
     std::cout << "TRIANGLES " << total.triangles << std::endl;
