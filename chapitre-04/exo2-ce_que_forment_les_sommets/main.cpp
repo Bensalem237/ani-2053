@@ -70,11 +70,26 @@ int main() {
     for (i = 0; i < n; i++) {
         if (!arr[i].refus) {
             if (arr[i].forme == "POINTS") {
-                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " " << arr[i].forme << " " << arr[i].sommetsRestants;
+                std::cout
+                << arr[i].forme << " "
+                << arr[i].sommets << " "
+                << arr[i].nbFormes << " "
+                << arr[i].forme << " "
+                << arr[i].sommetsRestants;
             } else if (arr[i].forme == "LINES" || arr[i].forme == "LINE_STRIP") {
-                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " SEGMENTS " << arr[i].sommetsRestants;
+                std::cout
+                << arr[i].forme << " "
+                << arr[i].sommets << " "
+                << arr[i].nbFormes
+                << " SEGMENTS "
+                << arr[i].sommetsRestants;
             } else if (arr[i].forme == "TRIANGLES" || arr[i].forme == "TRIANGLE STRIP" || arr[i].forme == "TRIANGLE_FAN") {
-                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " TRIANGLES " << arr[i].sommetsRestants;
+                std::cout
+                << arr[i].forme << " "
+                << arr[i].sommets << " "
+                << arr[i].nbFormes
+                << " TRIANGLES "
+                << arr[i].sommetsRestants;
             }
         } else {
             std::cout << arr[i].forme << " " << arr[i].sommets << " REFUSE";
