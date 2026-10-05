@@ -34,7 +34,7 @@ int main() {
         if (arr[i].forme == "POINTS") {
             arr[i].nbFormes = arr[i].sommets;
             arr[i].sommetsRestants = 0;
-            total.points = arr[i].sommets;
+            total.points += arr[i].sommets;
         } else if (arr[i].forme == "LINES") {
             arr[i].nbFormes = arr[i].sommets / 2;
             arr[i].sommetsRestants = arr[i].sommets % 2;
@@ -52,7 +52,7 @@ int main() {
             arr[i].nbFormes = arr[i].sommets / 3;
             arr[i].sommetsRestants = arr[i].sommets % 3;
             total.triangles += arr[i].nbFormes;
-        } else if (arr[i].forme == "TRIANGLE STRIP" || arr[i].forme == "TRIANGLE_FAN") {
+        } else if (arr[i].forme == "TRIANGLE_STRIP" || arr[i].forme == "TRIANGLE_FAN") {
             if (arr[i].sommets < 3) {
                 arr[i].nbFormes = 0;
                 arr[i].sommetsRestants = arr[i].sommets;
@@ -84,7 +84,7 @@ int main() {
                 << " SEGMENTS "
                 << arr[i].sommetsRestants;
             } else if (arr[i].forme == "TRIANGLES"
-                || arr[i].forme == "TRIANGLE STRIP"
+                || arr[i].forme == "TRIANGLE_STRIP"
                 || arr[i].forme == "TRIANGLE_FAN") {
                 std::cout
                 << arr[i].forme << " "
