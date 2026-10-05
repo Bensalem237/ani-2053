@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int N, i;
+    int N = 0, i = 0;
 
     struct primitive {
         std::string forme;
@@ -74,7 +74,6 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Output the total results
     std::cout << "POINTS " << total.points << std::endl;
     std::cout << "LINES " << total.segments << std::endl;
     std::cout << "TRIANGLES " << total.triangles << std::endl;
