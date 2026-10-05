@@ -11,24 +11,24 @@ int main() {
         int sommetsRestants;
         bool refus;
     };
-    
+
     struct bilan {
         int points;
         int segments;
         int triangles;
         int refuses;
     };
-    
+
     bilan total = {0, 0, 0, 0};
-    
+
     std::cin >> n;
-    
+
     primitive arr[n];
 
     for (i = 0; i < n; i++) {
         std::cin >> arr[i].forme >> arr[i].sommets;
     }
-    
+
     for (i = 0; i < n; i++) {
         arr[i].refus = false;
         if (arr[i].forme == "POINTS") {
@@ -71,10 +71,10 @@ int main() {
         if (!arr[i].refus) {
             if (arr[i].forme == "POINTS") {
                 std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " " << arr[i].forme << " " << arr[i].sommetsRestants;
-            } else if (arr[i].forme == "LINES" || arr[i].forme == "LINE_STRIP") {
-                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << "SEGMENTS " << arr[i].sommetsRestants;
+            } else if (arr[i].forme == "LINES" || arr[i].forme == " LINE_STRIP") {
+                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " SEGMENTS " << arr[i].sommetsRestants;
             } else if (arr[i].forme == "TRIANGLES" || arr[i].forme == "TRIANGLE STRIP" || arr[i].forme == "TRIANGLE_FAN") {
-                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << "TRIANGLES " << arr[i].sommetsRestants;
+                std::cout << arr[i].forme << " " << arr[i].sommets << " " << arr[i].nbFormes << " TRIANGLES " << arr[i].sommetsRestants;
             }
         } else {
             std::cout << arr[i].forme << " " << arr[i].sommets << " REFUSE";
