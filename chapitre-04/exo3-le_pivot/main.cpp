@@ -15,7 +15,7 @@ int main() {
         int angle;
         int x1, y1, x2, y2, x3, y3, x4, y4;
         int minx, miny, maxx, maxy;
-        bool refuse;
+        bool refuse = false;
     };
 
     std::cin >> n;
@@ -44,8 +44,10 @@ int main() {
 
         int rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4;
 
+        int norm = ((arr[i].angle % 360) + 360) % 360;
+
         int c = 0, s = 0;
-        switch (arr[i].angle) {
+        switch (norm) {
             case 0:
                 c = 1;
                 s = 0;
@@ -62,17 +64,13 @@ int main() {
                 c = 0;
                 s = -1;
                 break;
-            case -90:
-                c = 0;
-                s = -1;
-                break;
-            case 450:
-                c = 0;
-                s = 1;
-                break;
             default:
                 arr[i].refuse = true;
                 break;
+        }
+
+        if (arr[i].refuse) {
+            continue;
         }
 
         localX1 = 0;
