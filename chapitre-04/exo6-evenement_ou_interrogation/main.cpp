@@ -10,65 +10,78 @@ int main() {
     bool isRightPressed = false;
     bool isLeftPressed  = false;
 
-    struct image {
-        int k;
-        int actualxe, actualxi;
-        std::vector<std::string> ek;
-    };
-
     if (!(std::cin >> v >> n)) return 0;
 
-    std::vector<image> arr(n);
+    std::vector<int> final_xe(n);
+    std::vector<int> final_xi(n);
 
     for (int i = 0; i < n; i++) {
-        std::cin >> arr[i].k;
-        arr[i].ek.resize(arr[i].k);
+        int k;
+        std::cin >> k;
 
         bool spacePressedThisFrame = false;
         bool leftPressedThisFrame  = false;
         bool rightPressedThisFrame = false;
 
-        for (int j = 0; j < arr[i].k; j++) {
-            std::cin >> arr[i].ek[j];
-            std::string ev = arr[i].ek[j];
+        for (int j = 0; j < k; j++) {
+            std::string ev;
+            std::cin >> ev;
 
             if (ev == "+SPACE") {
-                sautsE++;
-                isSpacePressed = true;
-                spacePressedThisFrame = true;
+                if (isSpacePressed) {
+                    manques++;
+                } else {
+                    sautsE++;
+                    isSpacePressed = true;
+                    spacePressedThisFrame = true;
+                }
             } else if (ev == "-SPACE") {
                 if (!isSpacePressed) {
                     manques++;
-                } else if (spacePressedThisFrame) {
-                    manques++;
+                } else {
+                    if (spacePressedThisFrame) {
+                        manques++;
+                    }
+                    isSpacePressed = false;
                 }
-                isSpacePressed = false;
             }
 
             if (ev == "+LEFT") {
-                xe -= v;
-                isLeftPressed = true;
-                leftPressedThisFrame = true;
+                if (isLeftPressed) {
+                    manques++;
+                } else {
+                    xe -= v;
+                    isLeftPressed = true;
+                    leftPressedThisFrame = true;
+                }
             } else if (ev == "-LEFT") {
                 if (!isLeftPressed) {
                     manques++;
-                } else if (leftPressedThisFrame) {
-                    manques++;
+                } else {
+                    if (leftPressedThisFrame) {
+                        manques++;
+                    }
+                    isLeftPressed = false;
                 }
-                isLeftPressed = false;
             }
 
             if (ev == "+RIGHT") {
-                xe += v;
-                isRightPressed = true;
-                rightPressedThisFrame = true;
+                if (isRightPressed) {
+                    manques++;
+                } else {
+                    xe += v;
+                    isRightPressed = true;
+                    rightPressedThisFrame = true;
+                }
             } else if (ev == "-RIGHT") {
                 if (!isRightPressed) {
                     manques++;
-                } else if (rightPressedThisFrame) {
-                    manques++;
+                } else {
+                    if (rightPressedThisFrame) {
+                        manques++;
+                    }
+                    isRightPressed = false;
                 }
-                isRightPressed = false;
             }
         }
 
@@ -82,19 +95,17 @@ int main() {
             xi += v;
         }
 
-        arr[i].actualxe = xe;
-        arr[i].actualxi = xi;
+        final_xe[i] = xe;
+        final_xi[i] = xi;
     }
 
     for (int i = 0; i < n; i++) {
-        std::cout << i + 1 << " "
-                  << arr[i].actualxe << " "
-                  << arr[i].actualxi << std::endl;
+        std::cout << i + 1 << " " << final_xe[i] << " " << final_xi[i] << "\n";
     }
 
-    std::cout << "SAUTS EVENEMENTS " << sautsE << std::endl;
-    std::cout << "SAUTS INTERROGATION " << sautsI << std::endl;
-    std::cout << "MANQUES " << manques << std::endl;
+    std::cout << "SAUTS EVENEMENTS " << sautsE << "\n";
+    std::cout << "SAUTS INTERROGATION " << sautsI << "\n";
+    std::cout << "MANQUES " << manques << "\n";
 
     return 0;
 }
