@@ -36,7 +36,6 @@ int main() {
                 arr[i].jamais = true;
             } else {
                 arr[i].zoom = 100 / g;
-                arr[i].zoom = std::ceil(arr[i].zoom);
             }
 
             if (arr[i].zoom <= 100) {
