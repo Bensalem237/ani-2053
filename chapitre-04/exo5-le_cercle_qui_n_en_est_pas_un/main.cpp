@@ -9,8 +9,8 @@ int main() {
     int refuses = 0;
 
     struct cercle {
-        uint r;
-        uint n;
+        int r;
+        int n;
         int ecart;
         int zoom;
         bool refuse = false;
@@ -29,14 +29,12 @@ int main() {
             arr[i].refuse = true;
         } else {
             g = arr[i].r * (1 - std::cos(pi / arr[i].n));
-            arr[i].ecart = g * 1000;
-            arr[i].ecart = std::floor(arr[i].ecart);
+            arr[i].ecart = static_cast<int>(std::floor(g * 1000));
 
             if (g == 0) {
                 arr[i].jamais = true;
             } else {
-                arr[i].zoom = 100 / g;
-                arr[i].zoom = std::ceil(arr[i].zoom);
+                arr[i].zoom = static_cast<int>(std::ceil(100 / g));
             }
 
             if (arr[i].zoom <= 100) {
