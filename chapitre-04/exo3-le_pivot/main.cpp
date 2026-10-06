@@ -62,6 +62,14 @@ int main() {
                 c = 0;
                 s = -1;
                 break;
+            case -90:
+                c = 0;
+                s = -1;
+                break;
+            case 450:
+                c = 0;
+                s = 1;
+                break;
             default:
                 arr[i].refuse = true;
                 break;
