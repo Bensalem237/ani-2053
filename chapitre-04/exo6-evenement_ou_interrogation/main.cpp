@@ -73,9 +73,9 @@ int main() {
             arr[i].actualxi = xi;
         }
         if (arr[i].k > 2) {
-            if (arr[i].ek[0] == "+SPACE" && arr[i].ek[1] == "-SPACE"
-            || arr[i].ek[0] == "+LEFT" && arr[i].ek[1] == "-LEFT"
-            || arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT") {
+            if ((arr[i].ek[0] == "+SPACE" && arr[i].ek[1] == "-SPACE")
+            || (arr[i].ek[0] == "+LEFT" && arr[i].ek[1] == "-LEFT")
+            || (arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT")) {
                 manques++;
             }
         }
