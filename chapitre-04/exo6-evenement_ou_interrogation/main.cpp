@@ -54,6 +54,7 @@ int main() {
                     }
                     arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-SPACE") {
+                    isSpacePressed = false;
                 }
                 if (arr[i].ek[j] == "+LEFT") {
                     xe -= v;
