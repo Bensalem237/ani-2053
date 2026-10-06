@@ -60,9 +60,6 @@ int main() {
                     xe -= v;
                     xi -= v;
                     isLeftPressed = true;
-                    if (isSpacePressed) {
-                        sautsI++;
-                    }
                     if (isRightPressed) {
                         xi += v;
                     }
@@ -74,9 +71,6 @@ int main() {
                     xe += v;
                     xi += v;
                     isRightPressed = true;
-                    if (isSpacePressed) {
-                        sautsI++;
-                    }
                     if (isLeftPressed) {
                         xi -= v;
                     }
