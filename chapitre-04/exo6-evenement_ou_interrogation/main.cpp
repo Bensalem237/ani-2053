@@ -34,13 +34,9 @@ int main() {
             }
             if (isLeftPressed) {
                 xi -= v;
-            } else {
-                manques++;
             }
             if (isRightPressed) {
                 xi += v;
-            } else {
-                manques++;
             }
             arr[i].actualxi = xi;
         } else {
