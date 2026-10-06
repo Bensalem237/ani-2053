@@ -4,7 +4,7 @@
 int main() {
     int N;
     const double pi = 3.141592653589793;
-    int g;
+    double g;
     int visibles = 0;
     int refuses = 0;
 
@@ -36,6 +36,7 @@ int main() {
                 arr[i].jamais = true;
             } else {
                 arr[i].zoom = 100 / g;
+                arr[i].zoom = std::ceil(arr[i].zoom);
             }
 
             if (arr[i].zoom <= 100) {
