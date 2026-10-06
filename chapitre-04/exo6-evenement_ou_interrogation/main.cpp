@@ -82,7 +82,7 @@ int main() {
                     }
                     arr[i].actualxi = xi;
                 }
-                (arr[i].ek[j] == "-RIGHT") {
+                if (arr[i].ek[j] == "-RIGHT") {
                     isRightPressed = false;
                 }
                 if (arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT") {
