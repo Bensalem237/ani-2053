@@ -55,7 +55,7 @@ int main() {
                 if (arr[i].ek[j] == "-SPACE") {
                     isSpacePressed = false;
                 }
-                if (arr[i].ek[j] == "+SPACE" && arr[i].ek[j + 1] == "-SPACE") {
+                if (arr[i].ek[0] == "+SPACE" && arr[i].ek[1] == "-SPACE") {
                     manques++;
                 }
                 if (arr[i].ek[j] == "+LEFT") {
@@ -70,7 +70,7 @@ int main() {
                 if (arr[i].ek[j] == "-LEFT") {
                     isLeftPressed = false;
                 }
-                if (arr[i].ek[j] == "+LEFT" && arr[i].ek[j + 1] == "-LEFT") {
+                if (arr[i].ek[0] == "+LEFT" && arr[i].ek[1] == "-LEFT") {
                     manques++;
                 }
                 if (arr[i].ek[j] == "+RIGHT") {
@@ -85,7 +85,7 @@ int main() {
                 (arr[i].ek[j] == "-RIGHT") {
                     isRightPressed = false;
                 }
-                if (arr[i].ek[j] == "+RIGHT" && arr[i].ek[j + 1] == "-RIGHT") {
+                if (arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT") {
                     manques++;
                 }
             }
