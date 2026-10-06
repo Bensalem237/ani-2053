@@ -29,6 +29,8 @@ int main() {
         if (arr[i].k == 0) {
             if (isSpacePressed) {
                 sautsI++;
+            } else {
+                manques++;
             }
             if (isLeftPressed) {
                 xi -= v;
@@ -51,42 +53,29 @@ int main() {
                         xi += v;
                     }
                     arr[i].actualxi = xi;
-                }
-                if (arr[i].ek[j] == "-SPACE") {
+                } else if (arr[i].ek[j] == "-SPACE") {
                     isSpacePressed = false;
-                }
-                if (arr[i].ek[0] == "+SPACE" && arr[i].ek[1] == "-SPACE") {
-                    manques++;
-                }
-                if (arr[i].ek[j] == "+LEFT") {
-                    xe -= v;
-                    xi -= v;
-                    isLeftPressed = true;
+                    if (isLeftPressed) {
+                        xi -= v;
+                    }
                     if (isRightPressed) {
                         xi += v;
                     }
                     arr[i].actualxi = xi;
                 }
-                if (arr[i].ek[j] == "-LEFT") {
+                if (arr[i].ek[j] == "+LEFT") {
+                    xe -= v;
+                    xi -= v;
+                    isLeftPressed = true;
+                } else if (arr[i].ek[j] == "-LEFT") {
                     isLeftPressed = false;
-                }
-                if (arr[i].ek[0] == "+LEFT" && arr[i].ek[1] == "-LEFT") {
-                    manques++;
                 }
                 if (arr[i].ek[j] == "+RIGHT") {
                     xe += v;
                     xi += v;
                     isRightPressed = true;
-                    if (isLeftPressed) {
-                        xi -= v;
-                    }
-                    arr[i].actualxi = xi;
-                }
-                if (arr[i].ek[j] == "-RIGHT") {
+                } else if (arr[i].ek[j] == "-RIGHT") {
                     isRightPressed = false;
-                }
-                if (arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT") {
-                    manques++;
                 }
             }
             arr[i].actualxe = xe;
