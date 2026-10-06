@@ -21,6 +21,11 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i].k;
+        arr[i].ek.resize(arr[i].k);
+
+        arr[i].actualxe = xe;
+        arr[i].actualxi = xi;
+
         if (arr[i].k == 0) {
             if (isSpacePressed) {
                 sautsI++;
@@ -37,6 +42,7 @@ int main() {
             } else {
                 manques++;
             }
+            arr[i].actualxi = xi;
         } else {
             for (int j = 0; j < arr[i].k; j++) {
                 std::cin >> arr[i].ek[j];
@@ -62,9 +68,9 @@ int main() {
                     isRightPressed = false;
                 }
             }
+            arr[i].actualxe = xe;
+            arr[i].actualxi = xi;
         }
-        arr[i].actualxe = xe;
-        arr[i].actualxi = xi;
     }
 
     for (int i = 0; i < n; i++) {
