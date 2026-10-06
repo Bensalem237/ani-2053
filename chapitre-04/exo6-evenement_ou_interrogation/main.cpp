@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 int main() {
     int v, n;
@@ -15,7 +16,7 @@ int main() {
         std::vector<std::string> ek;
     };
 
-    std::cin >> v >> n;
+    if (!(std::cin >> v >> n)) return 0;
 
     std::vector<image> arr(n);
 
@@ -23,70 +24,72 @@ int main() {
         std::cin >> arr[i].k;
         arr[i].ek.resize(arr[i].k);
 
+        bool spacePressedThisFrame = false;
+        bool leftPressedThisFrame  = false;
+        bool rightPressedThisFrame = false;
+
+        for (int j = 0; j < arr[i].k; j++) {
+            std::cin >> arr[i].ek[j];
+            std::string ev = arr[i].ek[j];
+
+            if (ev == "+SPACE") {
+                sautsE++;
+                isSpacePressed = true;
+                spacePressedThisFrame = true;
+            } else if (ev == "-SPACE") {
+                if (!isSpacePressed) {
+                    manques++;
+                } else if (spacePressedThisFrame) {
+                    manques++;
+                }
+                isSpacePressed = false;
+            }
+
+            if (ev == "+LEFT") {
+                xe -= v;
+                isLeftPressed = true;
+                leftPressedThisFrame = true;
+            } else if (ev == "-LEFT") {
+                if (!isLeftPressed) {
+                    manques++;
+                } else if (leftPressedThisFrame) {
+                    manques++;
+                }
+                isLeftPressed = false;
+            }
+
+            if (ev == "+RIGHT") {
+                xe += v;
+                isRightPressed = true;
+                rightPressedThisFrame = true;
+            } else if (ev == "-RIGHT") {
+                if (!isRightPressed) {
+                    manques++;
+                } else if (rightPressedThisFrame) {
+                    manques++;
+                }
+                isRightPressed = false;
+            }
+        }
+
+        if (isSpacePressed) {
+            sautsI++;
+        }
+        if (isLeftPressed) {
+            xi -= v;
+        }
+        if (isRightPressed) {
+            xi += v;
+        }
+
         arr[i].actualxe = xe;
         arr[i].actualxi = xi;
-
-        if (arr[i].k == 0) {
-            if (isSpacePressed) {
-                sautsI++;
-            }
-            if (isLeftPressed) {
-                xi -= v;
-            }
-            if (isRightPressed) {
-                xi += v;
-            }
-            arr[i].actualxi = xi;
-        } else {
-            for (int j = 0; j < arr[i].k; j++) {
-                std::cin >> arr[i].ek[j];
-                if (arr[i].ek[j] == "+SPACE") {
-                    sautsE++;
-                    sautsI++;
-                    isSpacePressed = true;
-                    if (isLeftPressed) {
-                        xi -= v;
-                    }
-                    if (isRightPressed) {
-                        xi += v;
-                    }
-                    arr[i].actualxi = xi;
-                } else if (arr[i].ek[j] == "-SPACE") {
-                    if (arr[i].ek[j - 1] == "+SPACE") {
-                        manques++;
-                    }
-                    isSpacePressed = false;
-                }
-                if (arr[i].ek[j] == "+LEFT") {
-                    xe -= v;
-                    xi -= v;
-                    isLeftPressed = true;
-                } else if (arr[i].ek[j] == "-LEFT") {
-                    isLeftPressed = false;
-                    if (arr[i].ek[j - 1] == "+LEFT") {
-                        manques++;
-                    }
-                }
-                if (arr[i].ek[j] == "+RIGHT") {
-                    xe += v;
-                    xi += v;
-                    isRightPressed = true;
-                } else if (arr[i].ek[j] == "-RIGHT") {
-                    isRightPressed = false;
-                    if (arr[i].ek[j - 1] == "+RIGHT") {
-                        manques++;
-                    }
-                }
-            }
-            arr[i].actualxe = xe;
-            arr[i].actualxi = xi;
-        }
     }
 
     for (int i = 0; i < n; i++) {
-        std::cout << i + 1<< " "
-        << arr[i].actualxe << " "
-        << arr[i].actualxi <<std::endl;
+        std::cout << i + 1 << " "
+                  << arr[i].actualxe << " "
+                  << arr[i].actualxi << std::endl;
     }
 
     std::cout << "SAUTS EVENEMENTS " << sautsE << std::endl;
