@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 int main() {
     int v, n;
@@ -11,22 +12,31 @@ int main() {
     struct image {
         int k;
         int actualxe, actualxi;
-        std::string ek[];
+        std::vector<std::string> ek;
     };
 
     std::cin >> v >> n;
 
-    image arr[n];
+    std::vector<image> arr(n);
 
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i].k;
         if (arr[i].k == 0) {
-            if (isSpacePressed) sautsI++;
-            else manques++;
-            if (isLeftPressed)  xi -= v;
-            else manques++;
-            if (isRightPressed) xi += v;
-            else manques++;
+            if (isSpacePressed) {
+                sautsI++;
+            } else {
+                manques++;
+            }
+            if (isLeftPressed) {
+                xi -= v;
+            } else {
+                manques++;
+            }
+            if (isRightPressed) {
+                xi += v;
+            } else {
+                manques++;
+            }
         } else {
             for (int j = 0; j < arr[i].k; j++) {
                 std::cin >> arr[i].ek[j];
@@ -41,8 +51,6 @@ int main() {
                     xe -= v;
                     xi -= v;
                     isLeftPressed = true;
-                    arr[i].actualxe = xe;
-                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-LEFT") {
                     isLeftPressed = false;
                 }
@@ -50,17 +58,17 @@ int main() {
                     xe += v;
                     xi += v;
                     isRightPressed = true;
-                    arr[i].actualxe = xe;
-                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-RIGHT") {
                     isRightPressed = false;
                 }
             }
         }
+        arr[i].actualxe = xe;
+        arr[i].actualxi = xi;
     }
 
-    for (int i = 1; i <= n; i++) {
-        std::cout << i << " "
+    for (int i = 0; i < n; i++) {
+        std::cout << i + 1<< " "
         << arr[i].actualxe << " "
         << arr[i].actualxi <<std::endl;
     }
