@@ -1,0 +1,4 @@
+Ce que la coquille me donne : La fenetre, la boucle de jeu, le Clear, le Display.
+Ce qu'elle me prend : La configuration, les évènements, les instructions de dessiin.
+Quand je choisirais la main : Je choisirais les deux si j'avais besoin d'un contrôle sur la
+fenetre et le contexte graphique séparément, pour gérer deux fenetres par exemple.
