@@ -1,13 +1,16 @@
 #include <NKWindow/NKMain.h>
 #include <NKCanvas/App/NkCanvasApp.h>
 
-class Game : public nkentseu::renderer::NkCanvasApp {
+using namespace nkentseu;
+using namespace renderer;
+
+class Game : public NkCanvasApp {
     public :
         Game() {
             Config().title = "Moving Square";
             Config().width = 1280;
             Config().height = 600;
-            Config().clearColor = nkentseu::renderer::NkColor2D(60, 32, 45, 255);
+            Config().clearColor = NkColor2D(60, 32, 45, 255);
         }
 
         bool UpPressed;
@@ -15,19 +18,19 @@ class Game : public nkentseu::renderer::NkCanvasApp {
         bool DownPressed;
         bool LeftPressed;
 
-        bool OnEvent(const nkentseu::NkEvent &event) override {
-            if (auto press = event.As<nkentseu::NkKeyPressEvent>()) {
-                if (press->GetKey() == nkentseu::NkKey::NK_UP)     UpPressed    = true;
-                if (press->GetKey() == nkentseu::NkKey::NK_RIGHT)  RightPressed = true;
-                if (press->GetKey() == nkentseu::NkKey::NK_DOWN)   DownPressed  = true;
-                if (press->GetKey() == nkentseu::NkKey::NK_LEFT)   LeftPressed  = true;
+        bool OnEvent(const NkEvent &event) override {
+            if (auto press = event.As<NkKeyPressEvent>()) {
+                if (press->GetKey() == NkKey::NK_UP)     UpPressed    = true;
+                if (press->GetKey() == NkKey::NK_RIGHT)  RightPressed = true;
+                if (press->GetKey() == NkKey::NK_DOWN)   DownPressed  = true;
+                if (press->GetKey() == NkKey::NK_LEFT)   LeftPressed  = true;
             }
 
-            if (auto release = event.As<nkentseu::NkKeyReleaseEvent>()) {
-                if (release->GetKey() == nkentseu::NkKey::NK_UP)     UpPressed    = false;
-                if (release->GetKey() == nkentseu::NkKey::NK_RIGHT)  RightPressed = false;
-                if (release->GetKey() == nkentseu::NkKey::NK_DOWN)   DownPressed  = false;
-                if (release->GetKey() == nkentseu::NkKey::NK_LEFT)   LeftPressed  = false;
+            if (auto release = event.As<NkKeyReleaseEvent>()) {
+                if (release->GetKey() == NkKey::NK_UP)     UpPressed    = false;
+                if (release->GetKey() == NkKey::NK_RIGHT)  RightPressed = false;
+                if (release->GetKey() == NkKey::NK_DOWN)   DownPressed  = false;
+                if (release->GetKey() == NkKey::NK_LEFT)   LeftPressed  = false;
             }
             return false;
         }
@@ -35,7 +38,7 @@ class Game : public nkentseu::renderer::NkCanvasApp {
         float x = 0.f, y = 640.f;
         float vitesse = 150.f;
 
-        void OnUpdate(nkentseu::float32 dt) override {
+        void OnUpdate(float32 dt) override {
             if (UpPressed)    y -= vitesse * dt;
             if (RightPressed) x += vitesse * dt;
             if (DownPressed)  y += vitesse * dt;
@@ -47,12 +50,12 @@ class Game : public nkentseu::renderer::NkCanvasApp {
             if (y > 600.f)  y = 0.f;
         }
 
-        void OnRender(nkentseu::renderer::NkRenderWindow &target) override {
-            nkentseu::renderer::NkRenderer2D &r = target.GetRenderer2D();
-            r.DrawFilledRect({x, y, 50.f, 50.f}, nkentseu::renderer::NkColor2D::Red);
+        void OnRender(NkRenderWindow &target) override {
+            NkRenderer2D &r = target.GetRenderer2D();
+            r.DrawFilledRect({x, y, 50.f, 50.f}, NkColor2D::Red);
         }
 };
 
-int nkmain(const nkentseu::NkEntryState &state) {
-    return nkentseu::renderer::NkCanvasApp::Run<Game>(state);
+int nkmain(const NkEntryState &state) {
+    return NkCanvasApp::Run<Game>(state);
 }
