@@ -46,22 +46,8 @@ int main() {
                     sautsE++;
                     sautsI++;
                     isSpacePressed = true;
-                    if (isLeftPressed) {
-                        xi -= v;
-                    }
-                    if (isRightPressed) {
-                        xi += v;
-                    }
-                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-SPACE") {
                     isSpacePressed = false;
-                    if (isLeftPressed) {
-                        xi -= v;
-                    }
-                    if (isRightPressed) {
-                        xi += v;
-                    }
-                    arr[i].actualxi = xi;
                 }
                 if (arr[i].ek[j] == "+LEFT") {
                     xe -= v;
