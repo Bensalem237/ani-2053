@@ -29,8 +29,6 @@ int main() {
         if (arr[i].k == 0) {
             if (isSpacePressed) {
                 sautsI++;
-            } else {
-                manques++;
             }
             if (isLeftPressed) {
                 xi -= v;
@@ -73,6 +71,13 @@ int main() {
             }
             arr[i].actualxe = xe;
             arr[i].actualxi = xi;
+        }
+        if (arr[i].k > 2) {
+            if (arr[i].ek[0] == "+SPACE" && arr[i].ek[1] == "-SPACE"
+            || arr[i].ek[0] == "+LEFT" && arr[i].ek[1] == "-LEFT"
+            || arr[i].ek[0] == "+RIGHT" && arr[i].ek[1] == "-RIGHT") {
+                manques++;
+            }
         }
     }
 
