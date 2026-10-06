@@ -4,7 +4,7 @@
 
 int main() {
     int n;
-    int refuses;
+    int refuses = 0;
 
     struct form {
         std::string nom;
@@ -44,7 +44,7 @@ int main() {
 
         int rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4;
 
-        int c, s;
+        int c = 0, s = 0;
         switch (arr[i].angle) {
             case 0:
                 c = 1;
@@ -67,14 +67,14 @@ int main() {
                 break;
         }
 
-        localX1 = arr[i].px;
-        localY1 = arr[i].py;
-        localX2 = arr[i].px + arr[i].w;
-        localY2 = arr[i].py;
-        localX3 = arr[i].px + arr[i].w;
-        localY3 = arr[i].py + arr[i].h;
-        localX4 = arr[i].px;
-        localY4 = arr[i].py + arr[i].h;
+        localX1 = 0;
+        localY1 = 0;
+        localX2 = arr[i].w;
+        localY2 = 0;
+        localX3 = arr[i].w;
+        localY3 = arr[i].h;
+        localX4 = 0;
+        localY4 = arr[i].h;
 
         aX1 = (localX1 - arr[i].ox) * arr[i].sx;
         aY1 = (localY1 - arr[i].oy) * arr[i].sy;
