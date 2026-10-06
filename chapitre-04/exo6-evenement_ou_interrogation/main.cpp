@@ -46,22 +46,64 @@ int main() {
                     sautsE++;
                     sautsI++;
                     isSpacePressed = true;
+                    if (isLeftPressed) {
+                        xi -= v;
+                    }
+                    if (isRightPressed) {
+                        xi += v;
+                    }
+                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-SPACE") {
                     isSpacePressed = false;
+                    if (isLeftPressed) {
+                        xi -= v;
+                    }
+                    if (isRightPressed) {
+                        xi += v;
+                    }
+                    arr[i].actualxi = xi;
                 }
                 if (arr[i].ek[j] == "+LEFT") {
                     xe -= v;
                     xi -= v;
                     isLeftPressed = true;
+                    if (isSpacePressed) {
+                        sautsI++;
+                    }
+                    if (isRightPressed) {
+                        xi += v;
+                    }
+                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-LEFT") {
                     isLeftPressed = false;
+                    if (isSpacePressed) {
+                        sautsI++;
+                    }
+                    if (isRightPressed) {
+                        xi += v;
+                    }
+                    arr[i].actualxi = xi;
                 }
                 if (arr[i].ek[j] == "+RIGHT") {
                     xe += v;
                     xi += v;
                     isRightPressed = true;
+                    if (isSpacePressed) {
+                        sautsI++;
+                    }
+                    if (isLeftPressed) {
+                        xi -= v;
+                    }
+                    arr[i].actualxi = xi;
                 } else if (arr[i].ek[j] == "-RIGHT") {
                     isRightPressed = false;
+                    if (isSpacePressed) {
+                        sautsI++;
+                    }
+                    if (isLeftPressed) {
+                        xi -= v;
+                    }
+                    arr[i].actualxi = xi;
                 }
             }
             arr[i].actualxe = xe;
