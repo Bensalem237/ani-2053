@@ -17,16 +17,9 @@ int main() {
     int avances = 0; // Nombre total de pas
     int plafonnes = 0; // Nombre de fois que le plafond a été dépassé
 
-    int c = 0; // Case actuelle sur laquelle on se trouve
+    int x=0, y=0; // Position de la case animée
 
-    // Représente les cases animées
-    struct cases {
-        int c;
-        int x;
-        int y;
-        int w;
-        int h;
-    };
+    int c = 0; // Case actuelle sur laquelle on se trouve
 
     // --- DÉBUT DU PROGRAMME ---
 
@@ -36,14 +29,6 @@ int main() {
     // Vérifie que F est compris entre 1 et C * R
     if (F < 1 || F > C * R) {
         return -1;
-    }
-
-    // Stocke les cases animées
-    std::vector<cases> cases(F);
-
-    // Initialize le tableau de cases
-    for (int i = 0; i < F; i++) {
-        cases[i].c = -1;
     }
 
     // Lis le nombre de durrées à enregistrer
@@ -66,33 +51,23 @@ int main() {
             plafonnes++;
         }
         
-        else {
-            // Ajoute la durrée dt au temps accumulé
-            t += dt[i];
-            while (t >= D) {
-                t -= D;
-                c++;
-                if (c > (F - 1)) {
-                    c = 0;
-                }
-                avances++;
+        // Ajoute la durrée dt au temps accumulé
+        t += dt[i];
+        while (t >= D) {
+            t -= D;
+            c++;
+            if (c > (F - 1)) {
+                c = 0;
             }
-            cases[avances].c = c;
-            cases[avances].x = (c % C) * W;
-            cases[avances].y = (c / C) * H;
-            cases[avances].w = W;
-            cases[avances].h = H;
+            avances++;
         }
-    }
+        
+        // Calcule la position de la case
+        x = (c % C) * W;
+        y = (c / C) * H;
 
-    for (int i = 0; i < avances; i++) {
-        if (cases[i].c != -1) {
-            std::cout << cases[i].c << " "
-            << cases[i].x << " "
-            << cases[i].y << " "
-            << cases[i].w << " "
-            << cases[i].h << " " << std::endl;
-        }
+        // Affiche le résultat
+        std::cout << c << " " << x << " " << y << " " << W << " " << H << std::endl;
     }
 
     return 0;
