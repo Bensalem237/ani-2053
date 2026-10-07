@@ -70,5 +70,9 @@ int main() {
         std::cout << c << " " << x << " " << y << " " << W << " " << H << std::endl;
     }
 
+    // Affiche le bilan
+    std::cout << "AVANCES " << avances << std::endl;
+    std::cout << "PLAFONNES " << plafonnes << std::endl;
+
     return 0;
 }
