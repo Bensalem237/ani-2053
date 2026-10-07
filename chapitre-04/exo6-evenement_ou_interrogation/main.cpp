@@ -3,9 +3,6 @@
 #include <string>
 
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
-
     int v, n;
     int xe = 0, xi = 0;
     int sautsE = 0, sautsI = 0, manques = 0;
@@ -13,7 +10,9 @@ int main() {
     bool isRightPressed = false;
     bool isLeftPressed  = false;
 
-    if (!(std::cin >> v >> n)) return 0;
+    if (!(std::cin >> v >> n)) {
+        return 0;
+    }
 
     std::vector<int> final_xe(n);
     std::vector<int> final_xi(n);
