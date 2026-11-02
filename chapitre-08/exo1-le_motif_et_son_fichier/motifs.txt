@@ -1,0 +1,10 @@
+Stratégie : NkContextDesc.h:140
+Fabrique : NkRenderer2DFactory.h:36
+Façade : NkRenderWindow.h:77
+Patron de méthode : NkCanvasApp.h:202
+Observateur : NkEventDispatcher.h:121
+Singleton : NkEventDispatcher.h:417
+Adaptateur : NkGuiCanvasBackend.h:98
+Composite : NkTransformable.h:29
+
+Commande : Pourrait être implémenté dans NkEvent.h
