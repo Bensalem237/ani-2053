@@ -28,8 +28,12 @@ void zoomer(vec2d &centre, double &zoom, double facteur, vec2d pixel, double W, 
     vec2d avant = vers_monde(centre, pixel, zoom, W, H);
 
     zoom *= facteur;
-    if (zoom < 0.02) zoom = 0.02;
-    if (zoom > 64.0) zoom = 64.0;
+    if (zoom < 0.02) {
+        zoom = 0.02;
+    }
+    if (zoom > 64.0) {
+        zoom = 64.0;
+    }
 
     centre.x = avant.x - (pixel.x - W / 2.0) / zoom;
     centre.y = avant.y - (pixel.y - H / 2.0) / zoom;
@@ -37,8 +41,12 @@ void zoomer(vec2d &centre, double &zoom, double facteur, vec2d pixel, double W, 
 
 double grille(double zoom, double minPixels) {
     double s = 1.0;
-    while (s * zoom < minPixels) s *= 2.0;
-    while (s * 0.5 * zoom >= minPixels) s *= 0.5;
+    while (s * zoom < minPixels) {
+        s *= 2.0;
+    }
+    while (s * 0.5 * zoom >= minPixels) {
+        s *= 0.5;
+    }
     return s;
 }
 
@@ -48,7 +56,9 @@ void reinitialiser(vec2d &centre, double &zoom) {
 }
 
 double a_zero(double v) {
-    if (v > -0.005 && v < 0.005) return 0.0;
+    if (v > -0.005 && v < 0.005) {
+        return 0.0;
+    }
     return v;
 }
 
