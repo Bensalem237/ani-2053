@@ -1,4 +1,6 @@
+#include <cstdio>
 #include <iostream>
+#include <string>
 
 struct vec2d {
     double x = 0.0;
@@ -40,11 +42,14 @@ void zoomer(vec2d &centre, double &zoom, double facteur, vec2d pixel, double W, 
 }
 
 double grille(double zoom, double minPixels) {
+    if (minPixels <= 0.0 || zoom <= 0.0) {
+        return 1.0;
+    }
     double s = 1.0;
     while (s * zoom < minPixels) {
         s *= 2.0;
     }
-    while (s * 0.5 * zoom >= minPixels) {
+    while (s * 0.5 * zoom >= minPixels && s > 0.0) {
         s *= 0.5;
     }
     return s;
@@ -63,8 +68,10 @@ double a_zero(double v) {
 }
 
 int main() {
-    double W, H;
-    std::cin >> W >> H;
+    double W = 0.0, H = 0.0;
+    if (!(std::cin >> W >> H)) {
+        return 0;
+    }
 
     vec2d centre = {0.0, 0.0};
     double zoom = 1.0;
@@ -73,27 +80,32 @@ int main() {
     while (std::cin >> commande) {
         if (commande == "VERS_MONDE") {
             double px, py;
-            std::cin >> px >> py;
-            vec2d m = vers_monde(centre, {px, py}, zoom, W, H);
-            std::printf("MONDE %.2f %.2f\n", a_zero(m.x), a_zero(m.y));
+            if (std::cin >> px >> py) {
+                vec2d m = vers_monde(centre, {px, py}, zoom, W, H);
+                std::printf("MONDE %.2f %.2f\n", a_zero(m.x), a_zero(m.y));
+            }
         } else if (commande == "VERS_PIXEL") {
             double mx, my;
-            std::cin >> mx >> my;
-            vec2d p = vers_pixel(centre, {mx, my}, zoom, W, H);
-            std::printf("PIXEL %.2f %.2f\n", a_zero(p.x), a_zero(p.y));
+            if (std::cin >> mx >> my) {
+                vec2d p = vers_pixel(centre, {mx, my}, zoom, W, H);
+                std::printf("PIXEL %.2f %.2f\n", a_zero(p.x), a_zero(p.y));
+            }
         } else if (commande == "ZOOM") {
             double f, px, py;
-            std::cin >> f >> px >> py;
-            zoomer(centre, zoom, f, {px, py}, W, H);
+            if (std::cin >> f >> px >> py) {
+                zoomer(centre, zoom, f, {px, py}, W, H);
+            }
         } else if (commande == "DEPLACE") {
             double dx, dy;
-            std::cin >> dx >> dy;
-            deplacer(centre, zoom, dx, dy);
+            if (std::cin >> dx >> dy) {
+                deplacer(centre, zoom, dx, dy);
+            }
         } else if (commande == "GRILLE") {
             double m;
-            std::cin >> m;
-            double s = grille(zoom, m);
-            std::printf("GRILLE %.6f\n", a_zero(s));
+            if (std::cin >> m) {
+                double s = grille(zoom, m);
+                std::printf("GRILLE %.6f\n", s);
+            }
         } else if (commande == "ORIGINE") {
             reinitialiser(centre, zoom);
         }
